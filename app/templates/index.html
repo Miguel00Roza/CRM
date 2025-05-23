@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
     <title>CRM</title>
 </head>
 <body>
-    <h1>Minha pagina Flask!!</h1>
-
-    <p>Olá {{context.usuario}}, você tem {{context.idade}} anos e atualmente é {{context.cargo}}</p>
-    
-    <button><a href="{{url_for('nova')}}">nova pagina</a></button>
-
+<main>
+    <h1>CRM</h1>
+    <section class="buttons">
+        <a href="{{url_for('cadastro')}}"><button>cadastrar cliente</button></a>
+        <button>Visualisar clientes cadastrados</button>
+    </section>
+</main>
 </body>
 </html>

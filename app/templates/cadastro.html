@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='cadastro.css')}}">
+</head>
+<body>
+    <main>
+        <section class="screen">
+            <div class="container">
+                    <h2>Cadastrar cliente</h2>
+                    <form action="#">
+
+                        <label for="name">Nome do cliente</label>
+                        <input type="text" required>
+
+                        <label for="age">idade</label>
+                        <input type="number" min="0" required>
+
+                        <label for="telefone">Telefone</label>
+                        <input type="tel">
+
+                        <label for="email">Email</label>
+                        <input type="email" required>
+
+                        <label for="comentario">Sobre o cliente</label>
+                        <textarea name="texto" id="texto"></textarea>
+
+                        <button type="submit">Cadastrar</button>
+                    </form>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

@@ -6,15 +6,11 @@ import random
 #rota/pagina inicial
 @app.route('/')
 def home_page():
-    context = {
-        'usuario': 'Miguel',
-        'idade': 15,
-        'cargo': 'estudante'
-    }
 
-    return render_template('index.html', context=context)
+    return render_template('index.html')
 
 #rota secundaria, está foi criada como teste
-@app.route('/new')
-def nova():
-    return 'teste de pagina'
+@app.route('/cadastro')
+def cadastro():
+    
+    return render_template('cadastro.html')
