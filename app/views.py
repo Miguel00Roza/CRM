@@ -8,8 +8,8 @@ def home_page():
 
     return render_template('index.html')
 
-#rota secundaria, está foi criada como teste
+#rota/cadastro de clientes
 @app.route('/cadastro')
 def cadastro():
-    
+
     return render_template('cadastro.html')
