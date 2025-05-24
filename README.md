@@ -5,3 +5,5 @@
 <h3>Linguagens usadas:</h3>
 <p>Python - back-end</p>
 <p>Html e Css - Front-end</p>
+
+<p>usuarios no projeto: Miguel00Roza, RAFAGAMEPLAYS</p>
