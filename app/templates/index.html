@@ -6,12 +6,14 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
     <title>CRM</title>
 </head>
+<header>
+    <h1>CRM</h1>
+</header>
 <body>
 <main>
-    <h1>CRM</h1>
     <section class="buttons">
         <a href="{{url_for('cadastro')}}"><button>cadastrar cliente</button></a>
-        <button>Visualisar clientes cadastrados</button>
+        <a href="{{url_for('pesquisar')}}"><button>Visualisar clientes cadastrados</button></a>
     </section>
 </main>
 </body>

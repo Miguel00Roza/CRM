@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM - pesquisar</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='pesquisar.css')}}">
+</head>
+<header>
+    <h1>CRM - Pesquisar clientes</h1>
+</header>
+<body>
+    <div class="header">
+        <form action="" method="get">
+            <input type="search" placeholder="Pesquisar" class="pesquisar" name="pesquisa">
+            <button type="submit" class="botao">Pesquisar</button>
+        </form>
+        <p style="font-family: arial,sans-serif;">buscando: {{context['buscar']}}</p>
+    </div>
+</body>
+</html>

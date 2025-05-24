@@ -1,0 +1,28 @@
+Comandos para integração de novas seções no banco de dados:
+
+após inserir o que você quer adicionar no arquivo models.py você vai fazer isso:
+
+-No terminal digite: 
+-Flask db migrate -m "mensagem"
+-Flask db upgrade
+-----------------------------------------------------------------------------------------------
+Comandos para enviar as atualizações para o github:
+
+-No terminal digite:
+-git add .
+#isso ira adicionar todos os arquivos do projeto, caso você quiser enviar só alguns especifique ou caso não quiser enviar algum adicione no gitignore
+
+-git commit -m "mensagem"
+#prepara os arquivos e deixa uma mensagem, você deve inserir a mensagem explicando o que você fez
+
+-git push
+#envia os arquivos para o repositorio
+---------------------------------------------------
+Estou em outra maquina e quero continuar o projeto:
+
+-git clone link do projeto
+#clona seu repositorio na maquina novas
+
+-git pull
+#use isso caso você tenha feito alterações em outra maquina e ja tenha o repositorio clonado, isso puxa as alterações feitas
+#tenha como boa pratica sempre executar o git pull antes de fazer qualquer coisa no seu projeto

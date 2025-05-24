@@ -1,37 +1,40 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRM</title>
+    <title>CRM - cadastrar</title>
     <link rel="stylesheet" href="{{url_for('static', filename='cadastro.css')}}">
 </head>
+<header>
+    <h1>CRM - cadastrar clientes</h1>
+</header>
 <body>
     <main>
-        <section class="screen">
-            <div class="container">
-                    <h2>Cadastrar cliente</h2>
-                    <form action="#">
+        <div class="container">
+            <form action="" method="post">
 
-                        <label for="name">Nome do cliente</label>
-                        <input type="text" required>
+                <label for="name">Nome do cliente</label>
+                <input type="text" required name="nome">
 
-                        <label for="age">idade</label>
-                        <input type="number" min="0" required>
+                <label for="age">idade</label>
+                <input type="number" min="0" required name="idade">
 
-                        <label for="telefone">Telefone</label>
-                        <input type="tel">
+                <label for="telefone">Telefone</label>
+                <input type="tel" name="telefone">
 
-                        <label for="email">Email</label>
-                        <input type="email" required>
+                <label for="email">Email</label>
+                <input type="email" required name="email">
 
-                        <label for="comentario">Sobre o cliente</label>
-                        <textarea name="texto" id="texto"></textarea>
+                <label for="comentario">Sobre o cliente</label>
+                <textarea name="texto" id="texto"></textarea>
 
-                        <button type="submit">Cadastrar</button>
-                    </form>
-            </div>
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
         </section>
     </main>
 </body>
+
 </html>
