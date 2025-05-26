@@ -3,19 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRM - pesquisar</title>
-    <link rel="stylesheet" href="{{url_for('static', filename='pesquisar.css')}}">
+    <title>CRM - Pesquisar</title>
+    
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Seu CSS personalizado (opcional) -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='pesquisar.css') }}">
 </head>
-<header>
-    <h1>CRM - Pesquisar clientes</h1>
-</header>
-<body>
-    <div class="header">
-        <form action="" method="get">
-            <input type="search" placeholder="Pesquisar" class="pesquisar" name="pesquisa">
-            <button type="submit" class="botao">Pesquisar</button>
+<body class="bg-light">
+
+    <div class="container my-5">
+        <h1 class="text-center mb-4">CRM - Pesquisar Clientes</h1>
+
+        <!-- Formulário de pesquisa -->
+        <form class="d-flex mb-3" method="get">
+            <input type="search" name="pesquisa" class="form-control me-2" placeholder="Pesquisar">
+            <button class="btn btn-primary" type="submit">Pesquisar</button>
         </form>
-        <p style="font-family: arial,sans-serif;">buscando: {{context['buscar']}}</p>
+
+        {% if context['buscar'] %}
+            <p class="text-muted">Buscando: <strong>{{ context['buscar'] }}</strong></p>
+        {% endif %}
+
+        {% if context['dados'] %}
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Idade</th>
+                            <th>Telefone</th>
+                            <th>E-mail</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ context['dados'][1].id }}</td>
+                            <td>{{ context['dados'][1].nome }}</td>
+                            <td>{{ context['dados'][1].idade }}</td>
+                            <td>{{ context['dados'][1].telefone }}</td>
+                            <td>{{ context['dados'][1].email }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <div class="alert alert-info">Nenhum cliente encontrado.</div>
+        {% endif %}
     </div>
+
+    <!-- Bootstrap JS (opcional para componentes interativos) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM - cadastrar</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='cadastro.css')}}">
+</head>
+<header>
+    <h1>CRM - cadastrar clientes</h1>
+</header>
+<body>
+    <main>
+        <div class="container">
+            <form action="" method="post">
+                {{ form.csrf_token }}
+
+                {{ form.nome.label() }}
+                {{ form.nome() }}
+
+                {{ form.idade.label() }}
+                {{ form.idade() }}
+
+                {{ form.telefone.label() }}
+                {{ form.telefone() }}
+
+                {{ form.email.label() }}
+                {{ form.email() }}
+
+                {{ form.comentario.label() }}
+                {{ form.comentario() }}
+
+                {{ form.btnSubmit(class="button") }}
+            </form>
+        </div>
+        </section>
+    </main>
+</body>
+
+</html>

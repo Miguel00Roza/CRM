@@ -1,8 +1,9 @@
 #administra as rotas do site
 from app import app, db
-from flask import render_template, url_for, jsonify, request
+from flask import render_template, url_for, jsonify, request, flash, redirect
 
 from app.models import clientes
+from app.forms import clienteForm
 
 #rota/pagina inicial
 @app.route('/')
@@ -13,31 +14,24 @@ def home_page():
 #rota/cadastro de clientes
 @app.route('/cadastro', methods=['GET', 'POST'])
 def cadastro():
-    if request.method == 'POST':
-        nome = request.form['nome']
-        idade = request.form['idade']
-        telefone = request.form['telefone']
-        email = request.form['email']
-        mensagem = request.form['texto']
+    form = clienteForm()
 
-        Clientes = clientes(
-            nome=nome,
-            idade=idade,
-            telefone=telefone,
-            email=email,
-            comentario=mensagem
-        )
+    print("Método:", request.method)  # Verifica se é POST
+    print("Formulário válido?", form.validate_on_submit())  # Mostra se passou na validação
+    print("Erros no formulário:", form.errors)  # Mostra os erros se houver
 
-        db.session.add(Clientes)
-        db.session.commit()
+    if form.validate_on_submit():
+        form.save() #executa função save
+        flash('Cliente cadastrado com sucesso!', 'success') #mensagem caso tudo ocorra certo
+        return redirect(url_for('home_page')) #redireciona para pagina inicial
     
-
-    return render_template('cadastro.html')
+    return render_template('cadastro_novo.html', form=form)
 
 #rota/pesquisar clientes
 @app.route('/pesquisar')
 def pesquisar():
-    context = {}
+    dados = clientes.query.all()
+    context = {'dados': dados}
     if request.method == 'GET':
         pesquisa = request.args.get('pesquisa')
         context.update({'buscar': pesquisa})

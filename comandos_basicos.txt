@@ -26,3 +26,76 @@ Estou em outra maquina e quero continuar o projeto:
 -git pull
 #use isso caso você tenha feito alterações em outra maquina e ja tenha o repositorio clonado, isso puxa as alterações feitas
 #tenha como boa pratica sempre executar o git pull antes de fazer qualquer coisa no seu projeto
+
+
+
+
+
+
+
+
+if request.method == 'POST':
+        nome = request.form['nome']
+        idade = request.form['idade']
+        telefone = request.form['telefone']
+        email = request.form['email']
+        mensagem = request.form['texto']
+
+        Clientes = clientes(
+            nome=nome,
+            idade=idade,
+            telefone=telefone,
+            email=email,
+            comentario=mensagem
+        )
+
+        db.session.add(Clientes)
+        db.session.commit()
+
+
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM - pesquisar</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='pesquisar.css')}}">
+</head>
+<header>
+    <h1>CRM - Pesquisar clientes</h1>
+</header>
+<body>
+    <div class="header">
+        <form action="" method="get">
+            <input type="search" placeholder="Pesquisar" class="pesquisar" name="pesquisa">
+            <button type="submit" class="botao">Pesquisar</button>
+        </form>
+        <p style="font-family: arial,sans-serif;">buscando: {{context['buscar']}}</p>
+    </div>
+    {{context['dados']}}
+    <div class="container-table">
+    <div class="table">
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Telefone</th>
+                <th>E-mail</th>
+            </tr>
+        </thead>
+        <tbody>
+            <th>
+                <td>{{context['dados'][0].id}}</td>
+                <td>{{context['dados'][0].nome}}</td>
+                <td>{{context['dados'][0].idade}}</td>
+                <td>{{context['dados'][0].telefone}}</td>
+                <td>{{context['dados'][0].email}}</td>
+            </th>
+        </tbody>
+    </table>
+    </div>
+    </div>
+</body>
+</html>

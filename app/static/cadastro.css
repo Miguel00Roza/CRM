@@ -3,6 +3,7 @@ header {
 }
 body {
     font-family: arial, sans-serif;
+    margin: 60px;
 }
 .screen {
     width: 100vw;
@@ -30,7 +31,7 @@ input, textarea {
     border-radius: 6px;
     resize: vertical;
 }
-button {
+.button {
     background-color: #0077cc;
     color: white;
     padding: 12px 20px;
@@ -41,7 +42,7 @@ button {
     width: 100%;
     font-size: 16px;
 }
-button:hover {
+.button:hover {
     background-color: #005fa3;
 }
 form {
