@@ -1,6 +1,6 @@
 #administra as rotas do site
 from app import app, db
-from flask import render_template, url_for, jsonify, request, flash, redirect
+from flask import render_template, url_for, request, flash, redirect
 
 from app.models import clientes
 from app.forms import clienteForm
