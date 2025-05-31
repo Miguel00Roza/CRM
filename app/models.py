@@ -12,3 +12,9 @@ class clientes(db.Model):
     email = db.Column(db.String, nullable=True)
     comentario = db.Column(db.String)
 
+class atendimento(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    nome = db.Column(db.String, nullable=True)
+    situacao = db.Column(db.String, nullable=True)
+    piscina = db.Column(db.String, nullable=True)
+    vendedor = db.Column(db.String, nullable=True)

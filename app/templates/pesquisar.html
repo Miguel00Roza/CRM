@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,14 +18,13 @@
 
         <!-- Formulário de pesquisa -->
         <form class="d-flex mb-3" method="get">
-            <input type="search" name="pesquisa" class="form-control me-2" placeholder="Pesquisar">
-            <button class="btn btn-primary" type="submit">Pesquisar</button>
+            <input type="text" name="pesquisa" class="form-control me-2" placeholder="Pesquisar">
+            <button class="btn btn-primary me-2" type="submit">Pesquisar</button>
         </form>
 
         {% if context['buscar'] %}
             <p class="text-muted">Buscando: <strong>{{ context['buscar'] }}</strong></p>
         {% endif %}
-
         {% if context['dados'] %}
             <div class="table-responsive">
                 <table class="table table-striped table-bordered">
@@ -39,13 +38,15 @@
                         </tr>
                     </thead>
                     <tbody>
+                        {% for i in context['dados'] %}
                         <tr>
-                            <td>{{ context['dados'][1].id }}</td>
-                            <td>{{ context['dados'][1].nome }}</td>
-                            <td>{{ context['dados'][1].idade }}</td>
-                            <td>{{ context['dados'][1].telefone }}</td>
-                            <td>{{ context['dados'][1].email }}</td>
+                            <td>{{ i.id }}</td>
+                            <td>{{ i.nome }}</td>
+                            <td>{{ i.idade }}</td>
+                            <td>{{ i.telefone }}</td>
+                            <td>{{ i.email }}</td>
                         </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
