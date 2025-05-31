@@ -1,13 +1,7 @@
 #administra as rotas do site
-<<<<<<< HEAD
-from app import app, sqlalchemy
-from flask import render_template, url_for, jsonify, request, flash, redirect
-from sqlalchemy import func
-=======
 from app import app, db
 from flask import render_template, url_for, request, flash, redirect
->>>>>>> 3a490884f392ed788135d0c76b940659280d29a9
-
+from sqlalchemy import func
 from app.models import clientes
 from app.forms import clienteForm
 from app.forms import atendimentoForm
